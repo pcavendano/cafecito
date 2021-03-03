@@ -7,6 +7,7 @@ module.exports = merge(common, {
   output: {
     filename: 'main.[contentHash].js',
     path: path.resolve(__dirname, 'build'),
+    assetModuleFilename:"images/[hash][ext][query]"
   },
   module: {
     rules: [
