@@ -31,5 +31,13 @@
       }
     }
   ],
-  "ignorePatterns": ["build", "generated", "node_modules", "webpack.config.js"]
+  "ignorePatterns": [
+    "build",
+    "generated",
+    "node_modules",
+    "webpack.config.js",
+    "webpack.dev.js",
+    "webpack.prod.js",
+    "webpack.common.js"
+  ]
 }
