@@ -7,7 +7,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
   },
   module: {
     rules: [
@@ -25,6 +25,7 @@ module.exports = merge(common, {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   devServer: {
-    contentBase: './build',
+    contentBase: './build', 
+    hot:true
   },
 });

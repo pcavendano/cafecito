@@ -6,6 +6,21 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     filename: 'main.[contentHash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
+  resolve: {
+    // Enable webpack find ts and tsx files without an extension
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  }
 });
