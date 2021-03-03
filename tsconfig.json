@@ -1,17 +1,48 @@
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "module": "es6",
+//     "moduleResolution": "node",
+//     "allowJs": true,
+//     "jsx": "react",
+//     "sourceMap": true,
+//     "outDir": "./generated",
+//     "strict": true,
+//     "noImplicitReturns": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "allowSyntheticDefaultImports":true
+//   },
+//   "include": ["./src/**.*"],
+// }
+
+// tsconfig.json
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es6",
-    "moduleResolution": "node",
-    "allowJs": true,
+    "target": "ESNext",
+    "module": "umd",
+    "lib": [
+      "ES2015",
+      "ES2016",
+      "ES2017",
+      "ES2018",
+      "ES2019",
+      "ES2020",
+      "ESNext",
+      "dom"
+    ],
     "jsx": "react",
+    "noEmit": true,
     "sourceMap": true,
-    "outDir": "./generated",
+    /* Strict Type-Checking Options */
     "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+   
+    /* Module Resolution Options */
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports":true
+    "esModuleInterop": true
   },
-  "include": ["./src/**.*"],
+  "include": ["src"]
 }
