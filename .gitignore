@@ -6,3 +6,6 @@ generated
 
 # Files marked with gitigx
 *gitigx*
+ 
+ #Build directory, gh-pages creates one automatically
+ build
