@@ -23,7 +23,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default function PageHeader(props: { title: any; subtitle: any; icon: any; }) {
+
+type Props = {
+  title: string,
+  subtitle: string,
+  icon: any,
+};
+
+const PageHeader: React.FC<Props> = (props) => {
   const classes = useStyles();
   const { title, subtitle, icon } = props;
   return (
@@ -39,4 +46,6 @@ export default function PageHeader(props: { title: any; subtitle: any; icon: any
       </div>
     </Paper>
   );
-}
+};
+
+export default PageHeader;

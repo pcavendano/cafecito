@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         <Grid container alignItems="center">
           <Grid item>
             <InputBase
-              placeholder="Search Topics"
+              placeholder="Search  Topics"
               className={classes.searchInput}
               startAdornment={<SearchIcon fontSize="small" />}
             />

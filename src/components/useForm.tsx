@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { classicNameResolver } from 'typescript';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,9 +10,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function useForm(initialFValues) {
-  const [values, setValues] = useState(initialFValues);
-  const handleInputChange = (e) => {
+interface props {
+  id: number;
+  fullName: string;
+  email: string;
+  mobile: string;
+  city: string;
+  gender: string;
+  departmentId: string;
+  hireDate: any;
+  isPermanent: boolean;
+}
+
+export const useForm = (initialFValues: props) => {
+  const [values, setValues] = useState<props>(initialFValues);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<{ name?: any | undefined; value: unknown }>,
+  ) => {
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -26,9 +40,22 @@ export function useForm(initialFValues) {
     setValues,
     handleInputChange,
   };
-}
+};
 
-export function Form(props) {
-    const classes = useStyles();
-  return <form className={classes.root} >{props.children}</form>;
-}
+const usestyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiFormControl-root': {
+      width: '80%',
+      margin: theme.spacing(1),
+    },
+  },
+}));
+
+export const Form: React.FC = (props) => {
+  const classes = useStyles();
+  return (
+    <form className={classes.root} autoComplete="off">
+      {props.children}
+    </form>
+  );
+};
