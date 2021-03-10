@@ -5,7 +5,7 @@ import { ChangeEventHandler } from 'react';
 type Props = {
   name: string;
   label: string;
-  value: string;
+  value: string ;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 

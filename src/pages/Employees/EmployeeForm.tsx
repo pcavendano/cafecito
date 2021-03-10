@@ -18,7 +18,7 @@ const initialFValues = {
   gender: '',
   departmentId: '',
   hireDate: new Date(),
-  isPermanent: false,
+  isPermanent: true,
 };
 
 const EmployeeForm: React.FC = () => {
@@ -54,7 +54,14 @@ const EmployeeForm: React.FC = () => {
               label="Departement"
               value={values.departmentId}
               onChange={handleInputChange}
+              //replace with api call to database
               options={employeeService.getDepartementCollection()}
+            />
+            <Controls.Checkbox
+              name="isPermanent"
+              label="Permanent Employee"
+              value={values.isPermanent}
+              onChange={handleInputChange}
             />
           </Grid>
         </Grid>

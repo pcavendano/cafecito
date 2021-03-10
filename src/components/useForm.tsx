@@ -29,10 +29,15 @@ export const useForm = (initialFValues: props) => {
     e: React.ChangeEvent<{ name?: any | undefined; value: unknown }>,
   ) => {
     const { name, value } = e.target;
+    console.log(e.target);
+    console.log(value);
+    console.log(name);
+
     setValues({
       ...values,
       [name]: value,
     });
+    console.log(values);
   };
 
   return {
