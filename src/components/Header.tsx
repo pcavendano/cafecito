@@ -16,6 +16,7 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#fff',
+    transform:'translateZ(0)'
   },
   searchInput: {
     opacity: '0.6',
@@ -37,7 +38,7 @@ const Header: React.FC = () => {
         <Grid container alignItems="center">
           <Grid item>
             <InputBase
-              placeholder="Search Topics"
+              placeholder="Search  Topics"
               className={classes.searchInput}
               startAdornment={<SearchIcon fontSize="small" />}
             />

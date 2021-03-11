@@ -9,6 +9,8 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles';
 import Header from '../components/Header';
+import Employees from '../pages/Employees/Employees';
+import PeopleOutilineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 
 const theme = createMuiTheme({
   palette: {
@@ -41,6 +43,7 @@ const App: React.VFC = () => {
       <SideMenu />
       <div className={classes.appMain}>
         <Header />
+        <Employees />
       </div>
       {/* <Switch>
         <Route exact path="/" component={Home} />
