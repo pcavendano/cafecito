@@ -18,7 +18,7 @@ interface props {
   city: string;
   gender: string;
   departmentId: string;
-  hireDate: any;
+  hireDate: Date;
   isPermanent: boolean;
 }
 
@@ -29,9 +29,6 @@ export const useForm = (initialFValues: props) => {
     e: React.ChangeEvent<{ name?: any | undefined; value: unknown }>,
   ) => {
     const { name, value } = e.target;
-    console.log(e.target);
-    console.log(value);
-    console.log(name);
 
     setValues({
       ...values,

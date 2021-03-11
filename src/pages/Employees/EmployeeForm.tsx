@@ -40,6 +40,18 @@ const EmployeeForm: React.FC = () => {
               name="email"
               onChange={handleInputChange}
             />
+            <Controls.Input
+              label="Mobile"
+              value={values.mobile}
+              name="mobile"
+              onChange={handleInputChange}
+            />
+            <Controls.Input
+              label="City"
+              value={values.city}
+              name="city"
+              onChange={handleInputChange}
+            />
           </Grid>
           <Grid item xs={6}>
             <Controls.RadioGroup
@@ -57,12 +69,28 @@ const EmployeeForm: React.FC = () => {
               //replace with api call to database
               options={employeeService.getDepartementCollection()}
             />
+            <Controls.DatePicker
+              name="hireDate "
+              label="Hire Date"
+              value={values.hireDate}
+              onChange={handleInputChange}
+            />
             <Controls.Checkbox
               name="isPermanent"
               label="Permanent Employee"
               value={values.isPermanent}
               onChange={handleInputChange}
             />
+            <div>
+              <Controls.Button
+                type="submit"
+                text="Submit"
+              />
+              <Controls.Button
+                type="reset"
+                color="default"
+              />
+            </div>
           </Grid>
         </Grid>
       </Form>
