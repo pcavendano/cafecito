@@ -4,6 +4,7 @@ import {
   InputLabel,
   Select as MuiSelect,
   MenuItem,
+  FormHelperText,
 } from '@material-ui/core';
 
 type Props = {
@@ -20,11 +21,12 @@ type Props = {
       ) => void)
     | undefined;
   options: any;
+  error?: string;
 };
 const Select: React.FC<Props> = (props) => {
-  const { name, label, value, onChange, options } = props;
+  const { name, label, value, error = null, onChange, options } = props;
   return (
-    <FormControl variant="outlined">
+    <FormControl variant="outlined" {...(error && { error: true })}>
       <InputLabel>{label}</InputLabel>
       <MuiSelect label={label} name={name} value={value} onChange={onChange}>
         <MenuItem value="">None</MenuItem>
@@ -34,6 +36,7 @@ const Select: React.FC<Props> = (props) => {
           </MenuItem>
         ))}
       </MuiSelect>
+      {error && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
   );
 };

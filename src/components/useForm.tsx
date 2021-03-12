@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface props {
+interface Props {
   id: number;
   fullName: string;
   email: string;
@@ -22,8 +22,21 @@ interface props {
   isPermanent: boolean;
 }
 
-export const useForm = (initialFValues: props) => {
-  const [values, setValues] = useState<props>(initialFValues);
+interface Temp {
+  fullName: string | undefined;
+  departmentId: string | undefined;
+  email: string | undefined;
+  mobile: string | undefined;
+  errors?: string | undefined;
+}
+
+export const useForm = (
+  initialFValues: Props,
+  validateOnChange = false,
+  validate: (name: any) => void,
+) => {
+  const [values, setValues] = useState<Props>(initialFValues);
+  const [errors, setErrors] = useState<Partial<Temp | undefined>>({});
 
   const handleInputChange = (
     e: React.ChangeEvent<{ name?: any | undefined; value: unknown }>,
@@ -34,12 +47,20 @@ export const useForm = (initialFValues: props) => {
       ...values,
       [name]: value,
     });
-    console.log(values);
+    if (validateOnChange) validate({ [name]: value });
+  };
+
+  const resetForm = () => {
+    setValues(initialFValues);
+    setErrors({});
   };
 
   return {
     values,
     setValues,
+    errors,
+    setErrors,
+    resetForm,
     handleInputChange,
   };
 };
@@ -53,10 +74,14 @@ const usestyles = makeStyles((theme) => ({
   },
 }));
 
-export const Form: React.FC = (props) => {
+export const Form: React.FC<{
+  children?: React.ReactNode;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}> = (props) => {
+  const { children, ...other } = props;
   const classes = useStyles();
   return (
-    <form className={classes.root} autoComplete="off">
+    <form className={classes.root} autoComplete="off" {...other}>
       {props.children}
     </form>
   );
