@@ -25,7 +25,8 @@ module.exports = merge(common, {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   devServer: {
-    contentBase: './build', 
-    hot:true
+    contentBase: './build',
+    hot: true,
+    port: 3000,
   },
 });
